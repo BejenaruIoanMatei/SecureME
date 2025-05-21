@@ -16,6 +16,7 @@ classifier/reduced_url_dataset.csv
 *.bak
 *.swp
 *~
+__pycache__
 
 # To do list
 todo
