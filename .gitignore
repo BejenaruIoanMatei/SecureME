@@ -10,6 +10,7 @@ ENV/
 
 # Dataset
 dataset/malicious_phish.csv
+classifier/reduced_url_dataset.csv
 
 # Alte fișiere temporare
 *.bak
