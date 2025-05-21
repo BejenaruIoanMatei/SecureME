@@ -11,6 +11,7 @@ app = FastAPI()
 
 model = joblib.load("classifier/randomforest/rf_model.pkl")
 feature_names = joblib.load("classifier/randomforest/selected_columns.pkl")
+label_encoder = joblib.load("classifier/randomforest/label_encoder.pkl")
 
 @app.post("/predict")
 def predict_url(data: URLInput):
@@ -22,4 +23,6 @@ def predict_url(data: URLInput):
     features = features[feature_names]
 
     prediction = model.predict(features)[0]
-    return {"url": data.url, "prediction": int(prediction)}
+    label_name = label_encoder.inverse_transform([prediction])[0]
+
+    return {"url": data.url, "predicted_class": label_name}
