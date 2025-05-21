@@ -19,3 +19,7 @@ classifier/reduced_url_dataset.csv
 
 # To do list
 todo
+
+# Models
+classifier/knn
+classifier/randomforest
