@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "SecureME URL Scanner",
     "version": "1.0",
-    "description": "Detectează dacă un site este phishing sau sigur.",
+    "description": "Scan website URLs using SecureME backend.",
     "permissions": ["tabs", "scripting", "activeTab", "storage"],
     "host_permissions": ["<all_urls>"],
     "background": {

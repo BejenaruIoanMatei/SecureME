@@ -3,11 +3,19 @@ from pydantic import BaseModel
 import joblib
 from classifier.utils import extract_features
 import pandas as pd
+from fastapi.middleware.cors import CORSMiddleware
 
 class URLInput(BaseModel):
     url: str
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 model = joblib.load("classifier/randomforest/rf_model.pkl")
 feature_names = joblib.load("classifier/randomforest/selected_columns.pkl")
