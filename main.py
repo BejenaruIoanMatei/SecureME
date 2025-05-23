@@ -17,9 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-model = joblib.load("classifier/randomforest/rf_model.pkl")
-feature_names = joblib.load("classifier/randomforest/selected_columns.pkl")
-label_encoder = joblib.load("classifier/randomforest/label_encoder.pkl")
+model = joblib.load("classifier/randomForestV2/rf_model.pkl")
+feature_names = joblib.load("classifier/randomForestV2/selected_columns.pkl")
+label_encoder = joblib.load("classifier/randomForestV2/label_encoder.pkl")
 
 @app.post("/predict")
 def predict_url(data: URLInput):
@@ -33,4 +33,5 @@ def predict_url(data: URLInput):
     prediction = model.predict(features)[0]
     label_name = label_encoder.inverse_transform([prediction])[0]
 
+    print(f'Url:{data.url}\n Class:{label_name}')
     return {"url": data.url, "predicted_class": label_name}

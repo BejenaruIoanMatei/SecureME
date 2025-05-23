@@ -11,6 +11,7 @@ ENV/
 # Dataset
 dataset/malicious_phish.csv
 classifier/reduced_url_dataset.csv
+dataset/PhishingDataset
 
 # Alte fișiere temporare
 *.bak
@@ -24,3 +25,4 @@ todo
 # Models
 classifier/knn
 classifier/randomforest
+classifier/randomForestV2
